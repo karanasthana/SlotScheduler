@@ -5,13 +5,14 @@ The repository uses NodeJS to check for open vaccine slots in the districts by r
 To get this working, do the following steps - 
 - Sign up on Twilio with your phone number for a free account
 - Register your number and others', if required. (OTP Verification needs to happen)
-- Take out the Twilio Auth_Token and Twilio Account SID
+- Take out the Twilio Auth_Token and Twilio Account SID and Phone Number from which texts are to be sent
 
 - Create a new file `.env` whose contents should be -->
 
 ```
 TWILIO_ACCOUNT_SID=My_Account_Sid
 TWILIO_AUTH_TOKEN=My_Auth_Token
+FROM_PHONE_NUMBER=<FromPhoneNumber> // this is also provided by Twilio
 KARAN_PH_NO=+91<10_Digit_Number>
 ```
 
