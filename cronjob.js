@@ -39,17 +39,18 @@ const apiCalls = () => {
     });
 };
 
-const sendSms = async (smsText, phoneNum) => {
+const sendSms = async (smsText, toPhoneNum) => {
 
   var accountSid = process.env.TWILIO_ACCOUNT_SID;
   var authToken = process.env.TWILIO_AUTH_TOKEN; 
+  var fromPhoneNum = process.env.FROM_PHONE_NUMBER;
 
   var client = new twilio(accountSid, authToken);
 
   client.messages.create({
     body: smsText,
-    to: phoneNum,  // Text this number
-    from: '+14053695790' // From a valid Twilio number
+    to: toPhoneNum,  // Text this number
+    from: fromPhoneNum // From a valid Twilio number
   })
   .then((message) => console.log(message.sid))
   .catch( error => console.log("Error in sending message", error))
