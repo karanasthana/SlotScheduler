@@ -17,8 +17,10 @@ const apiCalls = () => {
     const requirementObject = requirementData.requirementData;
 
     requirementObject.forEach(reqObj => {
-      let dataForUrl = `district_id=${reqObj.district_id}&date=${moment().format('DD-MM-YYYY')}`;
+      let dataForUrl = `district_id=${reqObj.district_id}&date=${reqObj.date}&vaccine=${reqObj.vaccine}`;
       const finalUrl = `${calendarByDistrictUrl}${dataForUrl}`;
+
+      console.log({ finalUrl }, 'final url to get vaccine')
 
       https.get(finalUrl, (resp) => {
         let data = '';
